@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "outDir": "build/",
+    "resolveJsonModule": true,
+    "strict": true,
+    "target": "es2020"
+  },
+  "compileOnSave": true,
+  "include": ["src/**/*"]
+}
