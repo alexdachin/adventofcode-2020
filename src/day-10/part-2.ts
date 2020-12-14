@@ -9,21 +9,14 @@ const waysToGet = (currentJolts: number) => {
   }
 
   if (currentJolts === device) {
-    // full chain
     cache[currentJolts] = 1
     return 1
   }
 
-  const possibleJolts = allJolts
+  const nextPossibleJolts = allJolts
     .filter(nextJolts => nextJolts > currentJolts && nextJolts - currentJolts <= 3)
 
-  if (possibleJolts.length === 0) {
-    // no further adapters fit
-    cache[currentJolts] = 0
-    return 0
-  }
-
-  cache[currentJolts] = possibleJolts
+  cache[currentJolts] = nextPossibleJolts
     .reduce((acc, nextJolts): number => acc + waysToGet(nextJolts), 0)
 
   return cache[currentJolts]
